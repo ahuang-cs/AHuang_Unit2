@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 10f;
+    public GameObject projectilePrefab;
 
     // TODO: change to private before release
     public float horizontalInput;
@@ -32,6 +33,11 @@ public class PlayerController : MonoBehaviour
         if (transform.position.x < -xRange)
         {
             transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         }
     }
 }
